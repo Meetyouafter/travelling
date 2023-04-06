@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
@@ -21,8 +21,8 @@ module.exports = {
       directory: path.join(__dirname, 'build'),
     },
     compress: true, // file compress
-    hot: true,  //  update after file changes
-    open: true,  //  open brauser after start
+    hot: true, //  update after file changes
+    open: true, //  open brauser after start
     port: 3000,
   },
   output: {
@@ -31,11 +31,11 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts'],
   },
   optimization: {
     moduleIds: 'deterministic', //  coordination hash between build
-    runtimeChunk: 'single',  // division code on time start
+    runtimeChunk: 'single', // division code on time start
     splitChunks: {
       chunks: 'async',
       minSize: 20000,
@@ -69,11 +69,11 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
       {
