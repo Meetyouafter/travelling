@@ -1,0 +1,18 @@
+.container {
+  background-color: #FDB750;
+  height: 80px;
+  align-items: center;
+  justify-content: end;
+}
+
+button {
+  width: 20%;
+}
+
+button.active_button {
+  border-bottom: 10px solid #FC2E20;
+}
+
+button.active_button:hover {
+  box-shadow: #FC2E20 0px 19px 38px, #FC2E20 0px 15px 12px;
+}

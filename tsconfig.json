@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./build/",
+    "esModuleInterop": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "ES2015",
+    "target": "ES5",
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": ["src"]
 }

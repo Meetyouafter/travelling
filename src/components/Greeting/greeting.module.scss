@@ -1,4 +1,103 @@
+.wrapper {
+  height: 100%;
+  background-color: #010100;
+  color: #fff;
+  font-family: Lobster;
+}
+
 .container {
-  background-color: yellow;
-  font-size: 32px;
+  height: 100%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.description_container, .button_container {
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  font-family: 'Lobster';
+  font-size: 38;
+  word-wrap: 'break-word';
+  text-overflow: 'ellipsis';
+  text-align: 'center';
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  background-color: #010100;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  animation: glow 1s ease-in-out alternate infinite;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0px 10px #fff,
+    0 0 20px yellow,
+    0 0 40px #FC2E20,
+    0 0 60px red,
+  }
+  to {
+    box-shadow: 0 0 20px #fff,
+    0 0 40px yellow,
+    0 0 60px #FC2E20,
+    0 0 80px #FC2E20,
+    0 0 100px red,
+  }
+}
+
+.button:hover {
+  animation: hover_glow 1s ease-in-out alternate infinite;
+}
+
+@keyframes hover_glow {
+  from {
+    box-shadow: 0 0px 10px #fff,
+    0 0 20px yellow,
+    0 0 40px #FC2E20,
+    0 0 60px blue,
+  }
+  to {
+    box-shadow: 0 0 20px #fff,
+    0 0 40px lightblue,
+    0 0 60px blueviolet,
+    0 0 80px blueviolet,
+    0 0 100px blue,
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .button {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .button {
+    width: 150px;
+    height: 150px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 30px 0;
+    row-gap: 50px;
+  }
+
+  .description {
+    font-size: 32;
+  }
 }

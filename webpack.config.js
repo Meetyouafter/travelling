@@ -1,6 +1,81 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+module.exports = {
+  entry: './src/index.tsx',
+  devtool: 'inline-source-map',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    port: 3000,
+  },
+  module: {
+    rules: [
+      {
+        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
+        type: 'javascript/auto',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env'],
+              ['@babel/preset-react', { development: isDevelopment }],
+            ],
+            plugins: [
+              'babel-plugin-react-scoped-css',
+            ],
+          },
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      {
+        test: /\.(png|svg|jpe?g|gif|ico)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext]',
+        },
+      },
+      {
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        },
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      minify: !isDevelopment,
+      template: path.resolve(__dirname, 'index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+    }),
+  ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+};
+
+/*
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const path = require('path');
 
 module.exports = {
@@ -20,9 +95,6 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'build'),
     },
-    compress: true, // file compress
-    hot: true, //  update after file changes
-    open: true, //  open brauser after start
     port: 3000,
   },
   output: {
@@ -32,31 +104,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts'],
-  },
-  optimization: {
-    moduleIds: 'deterministic', //  coordination hash between build
-    runtimeChunk: 'single', // division code on time start
-    splitChunks: {
-      chunks: 'async',
-      minSize: 20000,
-      minRemainingSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          reuseExistingChunk: true,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
-    },
   },
   module: {
     rules: [
@@ -87,3 +134,4 @@ module.exports = {
     ],
   },
 };
+*/

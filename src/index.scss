@@ -1,34 +1,42 @@
 @font-face {
   font-family: Lobster;
-  src: url('./assets/fonts/lobster/Lobster-Regular.ttf') format('.ttf');
+  src: url('./assets/fonts/lobster/Lobster-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Heebo;
   font-weight: 400;
-  src: url('./assets/fonts/heebo/Heebo-Regular.ttf') format('.ttf');
+  src: url('./assets/fonts/heebo/Heebo-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Heebo;
   font-weight: 500;
-  src: url('./assets/fonts/heebo/Heebo-Medium.ttf') format('.ttf');
+  src: url('./assets/fonts/heebo/Heebo-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Heebo;
   font-weight: 600;
-  src: url('./assets/fonts/heebo/Heebo-SemiBold.ttf') format('.ttf');
+  src: url('./assets/fonts/heebo/Heebo-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Heebo;
   font-weight: 700;
-  src: url('./assets/fonts/heebo/Heebo-Bold.ttf') format('.ttf');
+  src: url('./assets/fonts/heebo/Heebo-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Heebo;
   font-weight: 800;
-  src: url('./assets/fonts/heebo/Heebo-ExtraBold.ttf') format('.ttf');
+  src: url('./assets/fonts/heebo/Heebo-ExtraBold.ttf') format('truetype');
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  font-family: Heebo;
+  font-size: 14px;
+  font-weight: 400;
 }
