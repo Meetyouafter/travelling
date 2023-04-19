@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, FC } from 'react';
 import { Grid, Typography } from '@mui/material';
 import styles from './social.module.scss';
 
@@ -8,7 +8,7 @@ type SocialItemProps = {
   icon: ReactNode,
 }
 
-const SocialItem = ({ network, link, icon }: SocialItemProps) => (
+const SocialItem: FC<SocialItemProps> = ({ network, link, icon }) => (
   <Grid item className={styles.item}>
     <a href={link} className={styles.link} target="_blank" rel="noreferrer">
       {icon}

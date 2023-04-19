@@ -1,17 +1,16 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import Instagram from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
-
 import SocialItem from './SocialItem';
 import styles from './social.module.scss';
 
 const socialData = [
   {
-    network: 'Linked In',
+    network: 'Linkedin',
     link: 'https://www.linkedin.com/in/antonlevus/',
     icon: <LinkedInIcon />,
     index: 1,
@@ -19,7 +18,7 @@ const socialData = [
   {
     network: 'Instagram',
     link: 'https://www.instagram.com/levis_irk/',
-    icon: <InstagramIcon />,
+    icon: <Instagram />,
     index: 2,
   },
   {

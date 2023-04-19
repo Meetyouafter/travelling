@@ -51,7 +51,7 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path={RouteService.contact} element={<Contact />} />
-        <Route path={RouteService.root} element={<Contact />} />
+        <Route path={RouteService.root} element={<Navigation />} />
         <Route path={RouteService.navigation} element={<Navigation />} />
       </Routes>
     </BrowserRouter>
