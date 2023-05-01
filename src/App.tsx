@@ -6,6 +6,7 @@ import RouteService from './api/RouteService';
 import Navigation from './components/Navigation/Navigation';
 import Contact from './components/Contact/Contact';
 import Study from './components/Study/Study';
+import Russia from './components/Russia/Russia';
 /*
 xs, extra-small: 0px
 sm, small: 600px
@@ -31,7 +32,7 @@ const theme = createTheme({
       textOverflow: 'ellipsis',
       textAlign: 'center',
     },
-    body1: {
+    body2: {
       fontFamily: 'Lobster',
       fontSize: 38,
       wordWrap: 'break-word',
@@ -51,8 +52,9 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path={RouteService.contact} element={<Contact />} />
-        <Route path={RouteService.root} element={<Navigation />} />
+        <Route path={RouteService.root} element={<Russia />} />
         <Route path={RouteService.navigation} element={<Navigation />} />
+        <Route path="countries/Russia" element={<Russia />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

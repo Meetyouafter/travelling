@@ -4,8 +4,11 @@ import {
   Typography, Card, CardMedia, CardContent, CardActions, Button, Grid, Box,
 } from '@mui/material';
 import styles from './countryCard.module.scss';
+import { useNavigate, useParams } from 'react-router-dom';
+import RouteService from '../../api/RouteService';
 
 interface CountryProps {
+  id: number;
   country: string;
   capital: string;
   images: string[];
@@ -15,17 +18,19 @@ interface CountryProps {
 type BinaryStateForImage = 0 | 1;
 
 const CountryCard: FC<CountryProps> = ({
-  country, images, description, capital,
+  country, images, description, capital, id,
 }) => {
   const [activeImageIndex, setActiveImageIndex] = useState<BinaryStateForImage>(0);
   const [data, setData] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('https://restcountries.eu/rest/v2/all')
       .then((response) => console.log(response));
   }, []);
 
-  console.log(data);
+  const handleClick = () => navigate(country);
 
   return (
     <Grid item className={styles.wrapper} xs={12}>
@@ -45,23 +50,10 @@ const CountryCard: FC<CountryProps> = ({
             <Typography gutterBottom variant="h5">
               {country}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {description}
-            </Typography>
-          </Box>
-          <Box className={styles.card__content_info}>
-            <Typography variant="body2">
-              Capital:
-              {' '}
-              {capital}
-            </Typography>
-            <Typography variant="body2">
-              Weather:
-            </Typography>
           </Box>
         </CardContent>
         <CardActions className={styles.card__footer}>
-          <Button size="small" variant="contained">Learn More</Button>
+          <Button size="small" variant="contained" onClick={handleClick}>Learn More</Button>
         </CardActions>
       </Card>
     </Grid>

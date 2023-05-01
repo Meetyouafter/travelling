@@ -10,7 +10,7 @@ const Greeting = () => {
     <Container className={styles.wrapper}>
       <Grid container className={styles.container}>
         <Grid item container className={styles.description_container} xs={12} sm={6}>
-          <Typography>
+          <Typography variant="body2">
             This is a project about my travel experience. Welcome!
           </Typography>
         </Grid>

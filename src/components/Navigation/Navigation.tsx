@@ -121,6 +121,7 @@ const Navigation = () => (
       {countries.map((country) => (
         <CountryCard
           key={country.id}
+          id={country.id}
           country={country.country}
           capital={country.capital}
           images={country.images}
