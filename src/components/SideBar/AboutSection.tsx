@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
 
 type Rating = {
   life_index: number,
@@ -27,18 +27,18 @@ type AboutSectionProps = {
 
 const AboutSection:FC<AboutSectionProps> = ({ countryData }) => (
   <>
-    <Typography paragraph>{countryData.description}</Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">{countryData.description}</Typography>
+    <Typography paragraph variant="h2">
       Capital:
       {' '}
       {countryData.capital}
     </Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">
       Currency:
       {' '}
       {countryData.currency}
     </Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">
       Area:
       {' '}
       {countryData.area}
@@ -48,7 +48,7 @@ const AboutSection:FC<AboutSectionProps> = ({ countryData }) => (
       {' '}
       position in the world
     </Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">
       Population:
       {' '}
       {countryData.population}
@@ -63,7 +63,7 @@ const AboutSection:FC<AboutSectionProps> = ({ countryData }) => (
       {' '}
       position in the world
     </Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">
       GDP:
       {' '}
       {countryData.GDP}
@@ -73,12 +73,11 @@ const AboutSection:FC<AboutSectionProps> = ({ countryData }) => (
       {' '}
       position in the world
     </Typography>
-    <Typography paragraph>
+    <Typography paragraph variant="h2">
       Life level rating:
       {' '}
       {countryData.rating_in_world.life_index}
     </Typography>
-
   </>
 );
 

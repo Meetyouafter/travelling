@@ -61,7 +61,9 @@ const SideBar:FC<SideBarProps> = ({ window, countryData }) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{
+          background: 'red',
+        }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -110,7 +112,7 @@ const SideBar:FC<SideBarProps> = ({ window, countryData }) => {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ minHeight: '100vh', background: '#010100', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
         {currentElement === 'about' && <AboutSection countryData={countryData} />}
