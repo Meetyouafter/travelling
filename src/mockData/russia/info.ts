@@ -1,7 +1,4 @@
-import React, { FC } from 'react';
-import SideBar from '../SideBar/SideBar';
-
-const russiaData = {
+const info = {
   country: 'Russia',
   description: "Russia is a transcontinental country spanning Eastern Europe and Northern Asia. It is the largest country in the world, encompassing one-eighth of Earth's inhabitable landmass. Russia extends across eleven time zones and shares land boundaries with fourteen countries.[d] It is the world's ninth-most populous country and Europe's most populous country.",
   capital: 'Moscow',
@@ -20,8 +17,4 @@ const russiaData = {
   },
 };
 
-const Russia: FC = () => (
-  <SideBar countryData={russiaData} />
-);
-
-export default Russia;
+export default info;

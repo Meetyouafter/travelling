@@ -1,14 +1,14 @@
 .container {
-  background-color: #FD7F20;
+  background-color: #fd7f20;
   height: 80px;
   align-items: center;
   justify-content: end;
 }
 
 button.active_button {
-  border-bottom: 10px solid #FC2E20;
+  border-bottom: 10px solid #fc2e20;
 }
 
 button.active_button:hover {
-  box-shadow: #FC2E20 0px 19px 38px, #FC2E20 0px 15px 12px;
+  box-shadow: #fc2e20 0px 19px 38px, #fc2e20 0px 15px 12px;
 }

@@ -1,6 +1,6 @@
 import React, { ReactNode, FC } from 'react';
 import { Grid, Typography } from '@mui/material';
-import styles from './social.module.scss';
+import styles from './socialItem.module.scss';
 
 type SocialItemProps = {
   network: string,

@@ -1,14 +1,17 @@
 import React from 'react';
-import { Grid } from '@mui/material';
 import Instagram from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import SocialItem from './SocialItem';
-import styles from './social.module.scss';
 
-const socialData = [
+type SocialData = {
+  network: string,
+  link: string,
+  icon: React.ReactNode,
+  index: number,
+}
+const socialData: SocialData[] = [
   {
     network: 'Linkedin',
     link: 'https://www.linkedin.com/in/antonlevus/',
@@ -41,17 +44,4 @@ const socialData = [
   },
 ];
 
-const Social = () => (
-  <Grid container className={styles.list}>
-    {socialData.map((network) => (
-      <SocialItem
-        network={network.network}
-        link={network.link}
-        icon={network.icon}
-        key={network.index}
-      />
-    ))}
-  </Grid>
-);
-
-export default Social;
+export default socialData;

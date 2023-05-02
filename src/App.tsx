@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Greeting from './components/Greeting/Greeting';
+import Greeting from './pages/Greeting/Greeting';
 import RouteService from './api/RouteService';
-import Navigation from './components/Navigation/Navigation';
-import Contact from './components/Contact/Contact';
+import Navigation from './pages/VisitedCountries/VisitedCountries';
+import Contact from './pages/Contact/Contact';
 import Study from './components/Study/Study';
-import Russia from './components/Russia/Russia';
+import Russia from './pages/Russia/Russia';
 /*
 xs, extra-small: 0px
 sm, small: 600px

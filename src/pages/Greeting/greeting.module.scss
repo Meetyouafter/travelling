@@ -11,7 +11,8 @@
   flex-direction: row;
 }
 
-.description_container, .button_container {
+.description_container,
+.button_container {
   align-items: center;
   justify-content: center;
 }
@@ -42,17 +43,11 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0px 10px #fff,
-    0 0 20px yellow,
-    0 0 40px #FC2E20,
-    0 0 60px red,
+    box-shadow: 0 0px 10px #fff, 0 0 20px yellow, 0 0 40px #fc2e20, 0 0 60px red;
   }
   to {
-    box-shadow: 0 0 20px #fff,
-    0 0 40px yellow,
-    0 0 60px #FC2E20,
-    0 0 80px #FC2E20,
-    0 0 100px red,
+    box-shadow: 0 0 20px #fff, 0 0 40px yellow, 0 0 60px #fc2e20,
+      0 0 80px #fc2e20, 0 0 100px red;
   }
 }
 
@@ -62,17 +57,12 @@
 
 @keyframes hover_glow {
   from {
-    box-shadow: 0 0px 10px #fff,
-    0 0 20px yellow,
-    0 0 40px #FC2E20,
-    0 0 60px blue,
+    box-shadow: 0 0px 10px #fff, 0 0 20px yellow, 0 0 40px #fc2e20,
+      0 0 60px blue;
   }
   to {
-    box-shadow: 0 0 20px #fff,
-    0 0 40px lightblue,
-    0 0 60px blueviolet,
-    0 0 80px blueviolet,
-    0 0 100px blue,
+    box-shadow: 0 0 20px #fff, 0 0 40px lightblue, 0 0 60px blueviolet,
+      0 0 80px blueviolet, 0 0 100px blue;
   }
 }
 

@@ -9,6 +9,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AboutSection from './AboutSection';
 import MenuSection from './MenuSection';
+import PlacesSection from './PlacesSection';
+import RecomendationSection from './RecomendationSection';
 
 type Rating = {
   life_index: number,
@@ -112,7 +114,8 @@ const SideBar:FC<SideBarProps> = ({ window, countryData }) => {
       >
         <Toolbar />
         {currentElement === 'about' && <AboutSection countryData={countryData} />}
-        {currentElement === 'cities' && <p>hi</p>}
+        {currentElement === 'places' && <PlacesSection />}
+        {currentElement === 'recomendation' && <RecomendationSection />}
       </Box>
     </Box>
   );

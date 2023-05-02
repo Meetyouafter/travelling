@@ -1,0 +1,37 @@
+.list {
+  margin-top: 140px;
+  justify-content: center;
+  align-items: center;
+  column-gap: 70px;
+  padding: 0px 50px;
+}
+
+.MuiContainer-root {
+  padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .list {
+    column-gap: 0px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .list {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 819px) {
+  .list {
+    margin-top: 20px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 579px) {
+  .list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+}

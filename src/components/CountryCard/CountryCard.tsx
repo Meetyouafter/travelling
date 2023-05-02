@@ -1,35 +1,21 @@
-import React, { FC, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { FC, useState } from 'react';
 import {
   Typography, Card, CardMedia, CardContent, CardActions, Button, Grid, Box,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import styles from './countryCard.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
-import RouteService from '../../api/RouteService';
 
 interface CountryProps {
-  id: number;
   country: string;
-  capital: string;
   images: string[];
-  description: string;
 }
 
 type BinaryStateForImage = 0 | 1;
 
-const CountryCard: FC<CountryProps> = ({
-  country, images, description, capital, id,
-}) => {
+const CountryCard: FC<CountryProps> = ({ country, images }) => {
   const [activeImageIndex, setActiveImageIndex] = useState<BinaryStateForImage>(0);
-  const [data, setData] = useState('');
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all')
-      .then((response) => console.log(response));
-  }, []);
-
   const handleClick = () => navigate(country);
 
   return (

@@ -21,23 +21,23 @@ const MenuSection: FC<MenuSectionProps> = ({ handleToggle }) => (
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
-          <ListItemText primary="About" />
+          <ListItemText primary="About country" />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton onClick={() => handleToggle('cities')}>
+        <ListItemButton onClick={() => handleToggle('places')}>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
-          <ListItemText primary="Visited cities" />
+          <ListItemText primary="Visited places" />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton>
+        <ListItemButton onClick={() => handleToggle('recomendation')}>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
-          <ListItemText primary="About" />
+          <ListItemText primary="My recomendation" />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
