@@ -9,12 +9,14 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    historyApiFallback: true,
     port: 3000,
   },
   module: {

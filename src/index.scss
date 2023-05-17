@@ -33,6 +33,9 @@
   src: url('./assets/fonts/heebo/Heebo-ExtraBold.ttf') format('truetype');
 }
 
+@import './styles/reset.scss';
+@import './styles/variables.scss';
+
 #root {
   width: 100%;
   height: 100%;

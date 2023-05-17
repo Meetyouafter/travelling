@@ -1,0 +1,22 @@
+.card {
+  background-color: #fdb750;
+  padding-top: 0;
+  .card__image {
+    height: 200px;
+  }
+}
+
+div.card__content {
+  padding: 10px 15px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__content_info {
+  width: 20%;
+}
+
+.card__footer {
+  justify-content: flex-end;
+}

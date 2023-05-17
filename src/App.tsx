@@ -7,6 +7,9 @@ import Navigation from './pages/VisitedCountries/VisitedCountries';
 import Contact from './pages/Contact/Contact';
 import Study from './components/Study/Study';
 import Russia from './pages/Russia/Russia';
+import India from './pages/India/India';
+import Kazahstan from './pages/Kazahstan/Kazahstan';
+import Error from './pages/Error/Error';
 /*
 xs, extra-small: 0px
 sm, small: 600px
@@ -51,10 +54,12 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <BrowserRouter>
       <Routes>
-        <Route path={RouteService.contact} element={<Contact />} />
-        <Route path={RouteService.root} element={<Russia />} />
+        <Route path={RouteService.root} element={<Greeting />} />
         <Route path={RouteService.navigation} element={<Navigation />} />
         <Route path="countries/Russia" element={<Russia />} />
+
+        <Route path={RouteService.contact} element={<Contact />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

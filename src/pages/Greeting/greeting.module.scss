@@ -1,6 +1,8 @@
+@import "../../styles/variables";
+
 .wrapper {
   height: 100%;
-  background-color: #010100;
+  background-color: $black;
   color: #fff;
   font-family: Lobster;
 }

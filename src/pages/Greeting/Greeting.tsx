@@ -6,8 +6,9 @@ import styles from './greeting.module.scss';
 
 const Greeting = () => {
   const navigate = useNavigate();
+
   return (
-    <Container className={styles.wrapper}>
+    <Container className={styles.wrapper} maxWidth="xl">
       <Grid container className={styles.container}>
         <Grid item container className={styles.description_container} xs={12} sm={6}>
           <Typography variant="body2">

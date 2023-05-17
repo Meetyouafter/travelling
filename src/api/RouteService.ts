@@ -1,8 +1,8 @@
 const RouteService = {
   root: '/',
-  navigation: 'countries',
+  navigation: '/navigation',
   not_exist: '/not_exist',
-  contact: 'contact',
+  contact: '/contact',
 };
 
 export default RouteService;
