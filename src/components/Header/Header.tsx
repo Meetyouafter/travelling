@@ -3,9 +3,12 @@ import { Grid, Button } from '@mui/material';
 import { useNavigate, redirect } from 'react-router-dom';
 import styles from './header.module.scss';
 import RouteService from '../../api/RouteService';
+import { useAppDispatch } from '../../redux/hooks';
+import { changeTheme } from '../../redux/slices/themeSlice';
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   return (
     <Grid item container className={styles.container}>
@@ -13,6 +16,7 @@ const Header = () => {
       <Button variant="contained" className={styles.active_button}>Countries</Button>
       <Button variant="outlined" className={styles.active_button} onClick={() => navigate(RouteService.contact)}>Contact</Button>
       <Button variant="outlined" className={styles.active_button} onClick={() => navigate(RouteService.navigation)}>Navigation page</Button>
+      <Button variant="outlined" className={styles.active_button} onClick={() => dispatch(changeTheme())}>Change theme</Button>
     </Grid>
   );
 };

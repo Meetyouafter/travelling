@@ -1,6 +1,6 @@
 const RouteService = {
   root: '/',
-  navigation: '/navigation',
+  navigation: '/countries',
   not_exist: '/not_exist',
   contact: '/contact',
 };

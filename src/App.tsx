@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Greeting from './pages/Greeting/Greeting';
@@ -10,6 +11,7 @@ import Russia from './pages/Russia/Russia';
 import India from './pages/India/India';
 import Kazahstan from './pages/Kazahstan/Kazahstan';
 import Error from './pages/Error/Error';
+import store from './redux/store';
 /*
 xs, extra-small: 0px
 sm, small: 600px
@@ -52,16 +54,18 @@ const theme = createTheme({
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <Routes>
-        <Route path={RouteService.root} element={<Greeting />} />
-        <Route path={RouteService.navigation} element={<Navigation />} />
-        <Route path="countries/Russia" element={<Russia />} />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path={RouteService.root} element={<Greeting />} />
+          <Route path={RouteService.navigation} element={<Navigation />} />
+          <Route path="countries/Russia" element={<Russia />} />
 
-        <Route path={RouteService.contact} element={<Contact />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path={RouteService.contact} element={<Contact />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </ThemeProvider>
 );
 
