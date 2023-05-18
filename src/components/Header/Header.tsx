@@ -3,12 +3,16 @@ import { Grid, Button } from '@mui/material';
 import { useNavigate, redirect } from 'react-router-dom';
 import styles from './header.module.scss';
 import RouteService from '../../api/RouteService';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeTheme } from '../../redux/slices/themeSlice';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const themeMode = useAppSelector((state) => state.theme.theme);
+  console.log(themeMode);
+
 
   return (
     <Grid item container className={styles.container}>

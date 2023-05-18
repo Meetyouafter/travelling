@@ -18,13 +18,14 @@ const CountryCard: FC<CountryProps> = ({ country, images }) => {
   const navigate = useNavigate();
   const handleClick = () => navigate(country);
 
+  
   return (
     <Grid item className={styles.wrapper} xs={12}>
       <Card
         onMouseEnter={() => setActiveImageIndex(1)}
         onMouseLeave={() => setActiveImageIndex(0)}
         className={styles.card}
-        sx={{ backgroundColor: '#FDB750' }}
+        // sx={{ backgroundColor: '#FDB750' }}
       >
         <CardMedia
           image={images[activeImageIndex]}
