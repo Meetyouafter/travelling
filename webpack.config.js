@@ -1,16 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  mode: isDevelopment ? 'development' : 'production',
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   devServer: {
     static: {
@@ -18,6 +22,9 @@ module.exports = {
     },
     historyApiFallback: true,
     port: 3000,
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -52,11 +59,11 @@ module.exports = {
         },
       },
       {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[name][ext]',
         },
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
       },
     ],
   },
@@ -67,74 +74,17 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'),
     }),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+      filename: isDevelopment ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[contenthash].css',
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: process.env.STATS || 'disabled',
     }),
   ],
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin({
+      parallel: true,
+    })],
   },
 };
-
-/*
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
-module.exports = {
-  mode: 'development',
-  entry: './src/index.tsx',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-    }),
-  ],
-  devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'build'),
-    },
-    port: 3000,
-  },
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'build'),
-    clean: true,
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      },
-    ],
-  },
-};
-*/

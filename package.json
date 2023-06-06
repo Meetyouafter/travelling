@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --mode production",
     "start:dev": "webpack serve --mode development",
-    "start:prod": "webpack serve --mode production"
+    "start:prod": "webpack serve --mode production",
+    "stats:dev": "STATS=server webpack --profile --json > stats.json --mode development",
+    "stats:prod": "STATS=server webpack --profile --json > stats.json --mode production"
   },
   "repository": {
     "type": "git",
@@ -46,9 +48,11 @@
     "sass-loader": "^13.2.2",
     "source-map-loader": "^4.0.1",
     "style-loader": "^3.3.2",
+    "terser-webpack-plugin": "^5.3.9",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.3",
     "webpack": "^5.77.0",
+    "webpack-bundle-analyzer": "^4.8.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.2"
   }

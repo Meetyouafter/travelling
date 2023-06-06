@@ -1,18 +1,13 @@
 import React from 'react';
-import { Container, Grid, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import RouteService from '../../api/RouteService';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
-const Error = () => {
-  const navigate = useNavigate();
-
-  return (
-    <Container maxWidth="xl">
-          <Typography variant="body2">
-            Error page
-          </Typography>
-    </Container>
-  );
-};
+const Error = () => (
+  <Container maxWidth="xl">
+    <Typography variant="body2">
+      Error page
+    </Typography>
+  </Container>
+);
 
 export default Error;

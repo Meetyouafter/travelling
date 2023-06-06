@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import styles from './contact.module.scss';
 import LayoutContainer from '../../components/LayoutContainer/LayoutContainer';
 import SocialItem from '../../components/SocialItem/SocialItem';
