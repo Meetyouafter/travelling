@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import RouteService from '../../api/RouteService';
@@ -6,6 +6,13 @@ import styles from './greeting.module.scss';
 
 const Greeting = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('/api')
+      .then((res) => res.json())
+      .then((data) => console.log(data.message));
+      console.log(90);
+  }, []);
 
   return (
     <Container className={styles.wrapper} maxWidth="xl">
