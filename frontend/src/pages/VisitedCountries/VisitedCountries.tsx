@@ -5,14 +5,8 @@ import LayoutContainer from '../../components/LayoutContainer/LayoutContainer';
 import visitedCountries from '../../mockData/visitedCountries';
 import styles from './visitedCountries.module.scss';
 
-type NavigationProps = {
-  setThemeForApp: () => void,
-}
-
-const Navigation:FC<NavigationProps> = ({setThemeForApp}) => (
+const Navigation:FC = () => (
   <LayoutContainer>
-    <button onClick={setThemeForApp}>Change</button>
-    <Button>Change</Button>
     <Grid container spacing={0.5} className={styles.container}>
       {visitedCountries.map((country) => (
         <CountryCard

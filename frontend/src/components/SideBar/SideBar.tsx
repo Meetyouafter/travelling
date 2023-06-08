@@ -11,26 +11,7 @@ import AboutSection from './AboutSection';
 import MenuSection from './MenuSection';
 import PlacesSection from './PlacesSection';
 import RecomendationSection from './RecomendationSection';
-
-type Rating = {
-  life_index: number,
-  population: number,
-  area: number,
-  GDP: number,
-}
-
-type Country = {
-  country: string,
-  description: string,
-  capital: string,
-  currency: string,
-  population: string,
-  area: string,
-  density: number,
-  count_of_cities: number,
-  GDP: string,
-  rating_in_world: Rating
-}
+import Country from './types';
 
 type SideBarProps = {
   countryData: Country,

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {
+  createContext, useCallback, useContext, useState,
+} from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
@@ -14,39 +16,45 @@ import Kazahstan from './pages/Kazahstan/Kazahstan';
 import Error from './pages/Error/Error';
 import store from './redux/store';
 import { darkTheme, lightTheme } from './styles/theme';
+import India_about from './pages/India/India_about';
 
-//  const themeMode = store.getState().theme.theme;
-//  const toggleTheme = () => store.dispatch(changeTheme());
-//  console.log(themeMode);
+export const ThemeContext = createContext(null);
 
 const App = () => {
-  const [themeForApp, setThemeForApp] = useState('dark');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
-  const toggleTheme = () => {
-    themeForApp === 'dark'
-      ? setThemeForApp('light')
-      : setThemeForApp('dark');
-  };
+  const toggleTheme = useCallback(() => {
+    if (theme === 'dark') {
+      localStorage.setItem('theme', 'light');
+      setTheme('light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark');
+    }
+  }, [theme]);
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={themeForApp === 'dark' ? darkTheme : lightTheme}>
-        <button type="button" onClick={toggleTheme}>Theme</button>
-        <CssBaseline />
-        <BrowserRouter>
-          <Routes>
-            <Route path={RouteService.root} element={<Greeting />} />
-            <Route
-              path={RouteService.navigation}
-              element={<Navigation setThemeForApp={toggleTheme} />}
-            />
-            <Route path="countries/Russia" element={<Russia />} />
+      <ThemeContext.Provider value={toggleTheme}>
+        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <Routes>
+              <Route path={RouteService.root} element={<Greeting />} />
+              <Route
+                path={RouteService.navigation}
+                element={<Navigation />}
+              />
+              <Route path="countries/Russia" element={<Russia />} />
+              <Route path="countries/India" element={<India />} />
+              <Route path="countries/India/about" element={<India_about />} />
 
-            <Route path={RouteService.contact} element={<Contact />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+              <Route path={RouteService.contact} element={<Contact />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </Provider>
   );
 };

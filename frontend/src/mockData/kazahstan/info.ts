@@ -3,11 +3,11 @@ const info = {
   description: 'Kazakhstan,[c] officially the Republic of Kazakhstan,[d] is a transcontinental landlocked country located mainly in Central Asia and partly in Eastern Europe',
   capital: 'Astana',
   currency: 'Tenge',
-  population: '19.398.331', // https://worldpopulationreview.com/countries
-  area: '2.724.900 km2',
-  density: 7, // плотность
+  population: 19398331,
+  area: 2_724_900,
+  density: 7,
   count_of_cities: 87,
-  GDP: '$ trillion', // ввп
+  GDP: 0,
   rating_in_world: {
     population: 64,
     area: 9,

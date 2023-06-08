@@ -7,13 +7,6 @@ import styles from './greeting.module.scss';
 const Greeting = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then((data) => console.log(data.message));
-      console.log(90);
-  }, []);
-
   return (
     <Container className={styles.wrapper} maxWidth="xl">
       <Grid container className={styles.container}>
