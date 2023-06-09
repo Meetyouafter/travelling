@@ -7,12 +7,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import RouteService from '../../api/RouteService';
 
-type NavigationMenuProps = {
+type PageNavigationProps = {
   element: null | HTMLElement,
   handleOpen: boolean,
   setElement: (element: null | HTMLElement) => void,
 }
-const Navigation: FC<NavigationMenuProps> = ({ element, handleOpen, setElement }) => {
+const PageNavigation: FC<PageNavigationProps> = ({ element, handleOpen, setElement }) => {
   const navigate = useNavigate();
 
   const handleSideMenuClose = () => {
@@ -58,7 +58,7 @@ const Navigation: FC<NavigationMenuProps> = ({ element, handleOpen, setElement }
         <p>Contact</p>
       </MenuItem>
       <MenuItem onClick={() => getNavigationToCurrentPage('navigation')}>
-        <IconButton size="large" color="inherit" >
+        <IconButton size="large" color="inherit">
           <NotificationsIcon />
         </IconButton>
         <p>Navigation</p>
@@ -67,4 +67,4 @@ const Navigation: FC<NavigationMenuProps> = ({ element, handleOpen, setElement }
   );
 };
 
-export default Navigation;
+export default PageNavigation;
