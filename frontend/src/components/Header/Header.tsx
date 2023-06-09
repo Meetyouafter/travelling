@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import PageNavigation from './PageNavigation';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import LanguageSelect from '../LanguageSelect/LanguageSelect';
 
 const Header = () => {
   const [profileElement, setProfileElement] = useState<null | HTMLElement>(null);
@@ -89,6 +90,10 @@ const Header = () => {
         <p>Theme</p>
       </MenuItem>
       <MenuItem>
+        <LanguageSelect />
+        <p>Language</p>
+      </MenuItem>
+      <MenuItem>
         <IconButton size="large" color="inherit">
           <MailIcon />
         </IconButton>
@@ -143,6 +148,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <ThemeSwitcher />
+            <LanguageSelect />
             <IconButton size="large" color="inherit">
               <MailIcon />
             </IconButton>
