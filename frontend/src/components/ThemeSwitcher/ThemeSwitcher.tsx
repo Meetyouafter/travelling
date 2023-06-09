@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import { ThemeContext } from '../../App';
+import StorageService from '../../api/StorageService';
 
 const CustomSwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -47,7 +48,7 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const ThemeSwitcher = () => {
-  const [checked, setChecked] = useState(localStorage.getItem('theme') !== 'dark');
+  const [checked, setChecked] = useState(StorageService.getTheme() === 'dark');
   const themeChange = useContext(ThemeContext);
 
   const toggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -17,18 +17,19 @@ import Error from './pages/Error/Error';
 import store from './redux/store';
 import { darkTheme, lightTheme } from './styles/theme';
 import India_about from './pages/India/India_about';
+import StorageService from './api/StorageService';
 
 export const ThemeContext = createContext(null);
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(StorageService.getTheme());
 
   const toggleTheme = useCallback(() => {
     if (theme === 'dark') {
-      localStorage.setItem('theme', 'light');
+      StorageService.setItem('theme', 'light');
       setTheme('light');
     } else {
-      localStorage.setItem('theme', 'dark');
+      StorageService.setItem('theme', 'dark');
       setTheme('dark');
     }
   }, [theme]);

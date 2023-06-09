@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { styled } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LanguageIcon from '@mui/icons-material/Language';
+import StorageService from '../../api/StorageService';
 
 const CustomSelect = styled(Select)(() => ({
   height: '30px',
@@ -19,9 +21,16 @@ const CustomSelect = styled(Select)(() => ({
 
 const LanguageSelect = () => {
   const [currentLng, setCurrentLng] = useState('default');
+  const { i18n } = useTranslation();
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setCurrentLng(event.target.value);
+  const handleChange = (e: SelectChangeEvent) => {
+    const { value } = e.target;
+    setCurrentLng(value);
+
+    if (value !== 'default') {
+      StorageService.setItem('language', value);
+      i18n.changeLanguage(value);
+    }
   };
 
   return (
